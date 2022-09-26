@@ -28,11 +28,21 @@ const LinkedList = function(headNode) {
     }
 
     function getTail() {
-
+        let currentNode = head;
+        while (currentNode.nextNode != null) {
+            currentNode = currentNode.nextNode;
+        }
+        return currentNode;
     }
 
     function at(index) {
-
+        let currentNode = head;
+        let currentIndex = 0;
+        while (currentIndex != index) {
+            ++currentIndex;
+            currentNode = currentNode.nextNode;
+        }
+        return currentNode;
     }
 
     function pop() {
@@ -80,3 +90,5 @@ linkedList1.prepend(newNode);
 linkedList1.prepend(newerNode);
 console.log(linkedList1.getHead());
 console.log(linkedList1.size());
+console.log(linkedList1.at(0));
+console.log(linkedList1.getTail());
