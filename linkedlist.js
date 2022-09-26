@@ -1,4 +1,5 @@
-const LinkedList = function(head) {
+const LinkedList = function(headNode) {
+    let head = headNode;
     function append(value) {
         let currentNode = head;
         while (currentNode.nextNode != null) {
@@ -8,11 +9,18 @@ const LinkedList = function(head) {
     }
 
     function prepend(value) {
-
+        value.nextNode = head;
+        head = value;
     }
 
     function size() {
-
+        let n = 0;
+        let currentNode = head;
+        while (currentNode != null) {
+            currentNode = currentNode.nextNode;
+            ++n;
+        }
+        return n;
     }
 
     function getHead() {
@@ -66,6 +74,9 @@ const Node = function(value=null, nextNode=null) {
 
 head1 = Node(12);
 newNode = Node(54);
+newerNode = Node(134);
 linkedList1 = LinkedList(head1);
-linkedList1.append(newNode);
+linkedList1.prepend(newNode);
+linkedList1.prepend(newerNode);
 console.log(linkedList1.getHead());
+console.log(linkedList1.size());
