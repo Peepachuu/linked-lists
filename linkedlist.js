@@ -46,15 +46,37 @@ const LinkedList = function(headNode) {
     }
 
     function pop() {
-
+        let currentNode = head;
+        if (currentNode.nextNode == null) {
+            currentNode = null;
+            return ;
+        }
+        while (currentNode.nextNode.nextNode != null) {
+            currentNode = currentNode.nextNode;
+        }
+        currentNode.nextNode = null;
     }
 
     function contains(value) {
-
+        let currentNode = head;
+        while (currentNode != null) {
+            if (currentNode == value)
+                return true;
+            currentNode = currentNode.nextNode;
+        }
+        return false;
     }
 
     function find(value) {
-
+        let currentNode = head;
+        let index = 0;
+        while (currentNode != null) {
+            if (currentNode == value)
+                return index;
+            ++index;
+            currentNode = currentNode.nextNode;
+        }
+        return null;
     }
 
     function toString() {
@@ -92,3 +114,8 @@ console.log(linkedList1.getHead());
 console.log(linkedList1.size());
 console.log(linkedList1.at(0));
 console.log(linkedList1.getTail());
+console.log("gapppp");
+linkedList1.pop();
+linkedList1.pop();
+linkedList1.pop();
+console.log(linkedList1.getHead());
