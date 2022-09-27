@@ -48,7 +48,7 @@ const LinkedList = function(headNode) {
     function pop() {
         let currentNode = head;
         if (currentNode.nextNode == null) {
-            currentNode = null;
+            head = null;
             return ;
         }
         while (currentNode.nextNode.nextNode != null) {
@@ -108,8 +108,8 @@ head1 = Node(12);
 newNode = Node(54);
 newerNode = Node(134);
 linkedList1 = LinkedList(head1);
-linkedList1.prepend(newNode);
-linkedList1.prepend(newerNode);
+linkedList1.append(newNode);
+linkedList1.append(newerNode);
 console.log(linkedList1.getHead());
 console.log(linkedList1.size());
 console.log(linkedList1.at(0));
