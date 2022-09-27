@@ -80,7 +80,14 @@ const LinkedList = function(headNode) {
     }
 
     function toString() {
-
+        let currentNode = head;
+        let stringRepresentation = "";
+        while (currentNode != null) {
+            stringRepresentation += `(${currentNode.value}) -> `;
+            currentNode = currentNode.nextNode;
+        }
+        stringRepresentation += "null";
+        return stringRepresentation;
     }
 
     return {
@@ -115,7 +122,4 @@ console.log(linkedList1.size());
 console.log(linkedList1.at(0));
 console.log(linkedList1.getTail());
 console.log("gapppp");
-linkedList1.pop();
-linkedList1.pop();
-linkedList1.pop();
-console.log(linkedList1.getHead());
+console.log(linkedList1.toString());
